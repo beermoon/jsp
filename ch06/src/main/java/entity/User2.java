@@ -4,9 +4,8 @@ public class User2 {
 
 	private String uid;
 	private String name;
-	private String hp;
-	private int age;
-	
+	private String birth;
+	private String addr;
 	public String getUid() {
 		return uid;
 	}
@@ -19,26 +18,21 @@ public class User2 {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getHp() {
-		return hp;
+	public String getBirth() {
+		return birth;
 	}
-	public void setHp(String hp) {
-		this.hp = hp;
+	public void setBirth(String birth) {
+		this.birth = birth;
 	}
-	public int getAge() {
-		return age;
+	public String getAddr() {
+		return addr;
 	}
-	public void setAge(int age) {
-		this.age = age;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
-	
 	@Override
 	public String toString() {
-		return "User2 [uid=" + uid + ", name=" + name + ", hp=" + hp + ", age=" + age + "]";
+		return "User2 [uid=" + uid + ", name=" + name + ", birth=" + birth + ", addr=" + addr + "]";
 	}
 	
-	
-	
 }
-
-

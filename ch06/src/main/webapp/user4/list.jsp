@@ -1,4 +1,4 @@
-<%@page import="entity.User2"%>
+<%@page import="entity.User4"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.ResultSet"%>
@@ -12,22 +12,24 @@
 	String user = "root";
 	String pass = "1234";
 	
-	List<User2> users = new ArrayList<>();
+	List<User4> users = new ArrayList<>();
 
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(host, user, pass);
 		Statement stmt = conn.createStatement();
 		
-		ResultSet rs = stmt.executeQuery("SELECT * FROM `user2`");
+		ResultSet rs = stmt.executeQuery("SELECT * FROM `user4`");
 		
 		while(rs.next()){
-			User2 user2 = new User2();
-			user2.setUid(rs.getString(1));
-			user2.setName(rs.getString(2));
-			user2.setBirth(rs.getString(3));
-			user2.setAddr(rs.getString(4));
-			users.add(user2);			
+			User4 user4 = new User4();
+			user4.setUid(rs.getString(1));
+			user4.setName(rs.getString(2));
+			user4.setGender(rs.getString(3));
+			user4.setAge(rs.getInt(4));
+			user4.setHp(rs.getString(5));
+			user4.setAddr(rs.getString(6));
+			users.add(user4);			
 		}
 		
 		rs.close();
@@ -42,10 +44,10 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>user2::list</title>
+	<title>user4::list</title>
 </head>
 <body>
-	<h3>user2 목록</h3>
+	<h3>user4 목록</h3>
 	<a href="../1.jdbc.jsp">처음으로</a>
 	<a href="./register.jsp">등록하기</a>
 	
@@ -53,19 +55,23 @@
 		<tr>
 			<th>아이디</th>
 			<th>이름</th>
-			<th>생년월일</th>
+			<th>성별</th>
+			<th>나이</th>
+			<th>휴대폰</th>			
 			<th>주소</th>
 			<th>관리</th>
 		</tr>
-		<% for(User2 user2 : users){ %>
+		<% for(User4 user4 : users){ %>
 		<tr>
-			<td><%= user2.getUid() %></td>
-			<td><%= user2.getName() %></td>
-			<td><%= user2.getBirth() %></td>
-			<td><%= user2.getAddr() %></td>
+			<td><%= user4.getUid() %></td>
+			<td><%= user4.getName() %></td>
+			<td><%= user4.getGender() %></td>
+			<td><%= user4.getAge() %></td>
+			<td><%= user4.getHp() %></td>
+			<td><%= user4.getAddr() %></td>
 			<td>
-				<a href="./modify.jsp?uid=<%= user2.getUid() %>">수정</a>
-				<a href="./proc/delete.jsp?uid=<%= user2.getUid() %>">삭제</a>
+				<a href="./modify.jsp?uid=<%= user4.getUid() %>">수정</a>
+				<a href="./proc/delete.jsp?uid=<%= user4.getUid() %>">삭제</a>
 			</td>
 		</tr>
 		<% } %>		

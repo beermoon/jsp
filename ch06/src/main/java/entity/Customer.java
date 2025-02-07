@@ -1,29 +1,23 @@
 package entity;
 
-public class User3 {
-
-	private String uid;
+public class Customer {
+	private String custId;
 	private String name;
-	private String birth;
 	private String hp;
 	private String addr;
-	public String getUid() {
-		return uid;
+	private String rdate;
+	
+	public String getCustId() {
+		return custId;
 	}
-	public void setUid(String uid) {
-		this.uid = uid;
+	public void setCustId(String custId) {
+		this.custId = custId;
 	}
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-	public String getBirth() {
-		return birth;
-	}
-	public void setBirth(String birth) {
-		this.birth = birth;
 	}
 	public String getHp() {
 		return hp;
@@ -37,11 +31,18 @@ public class User3 {
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	
+	public String getRdate() {
+		return rdate;
+	}
+	public void setRdate(String rdate) {
+		this.rdate = rdate;
+	}
 	@Override
 	public String toString() {
-		return "User3 [uid=" + uid + ", name=" + name + ", birth=" + birth + ", hp=" + hp + ", addr=" + addr + "]";
+		return "Customer [custId=" + custId + ", name=" + name + ", hp=" + hp + ", addr=" + addr + ", rdate=" + rdate
+				+ "]";
 	}
+	
 	
 	
 }

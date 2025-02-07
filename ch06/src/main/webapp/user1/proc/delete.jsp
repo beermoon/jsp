@@ -31,3 +31,5 @@
 	// 목록이동
 	response.sendRedirect("../list.jsp");
 %>
+
+
